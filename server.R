@@ -11,8 +11,8 @@ autoMPG <- function(hp, wt) {
 
 shinyServer(
     function(input, output) {
-        output$ohp <- renderPrint({input$hp})
-        output$owt <- renderPrint({input$wt})
-        output$mpg <- renderPrint({autoMPG(input$hp, input$wt)})
+        output$ohp <- renderText({paste("Horsepower: ", input$hp)})
+        output$owt <- renderText({paste("Weight: ", input$wt, " tons")})
+        output$mpg <- renderText({paste(round(autoMPG(input$hp, input$wt), 3), " miles per gallon")})
     }
 )
